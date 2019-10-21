@@ -1,0 +1,38 @@
+﻿@model CreatePersonViewModel
+    <form asp-action="CreatePerson" enctype="multipart/form-data" method="post">
+        @Html.ValidationSummary(true)
+
+        <input type="hidden" name="GenderId" value="1" />
+        <div class="form-group">
+            <label for="@Model.Person.FirstName">FirstName</label>
+            <input type="text" class="form-control" id="" placeholder="" name="FirstName">
+
+        </div>
+        <div class="form-group">
+            <label for="@Model.Person.LastName">Last Name</label>
+            <input type="text" class="form-control" id="" placeholder="" name="LastName">
+        </div>
+        <div class="form-group">
+            <label for="@Model.Person.PersonalNumber">Personal Number</label>
+            <input type="text" class="form-control" id="" placeholder="" name="PersonalNumber">
+        </div>
+        <div class="form-group">
+            <label for="@Model.Person.BirthDate">Personal Number</label>
+            <input type="text" class="form-control" id="" placeholder="" name="BirthDate">
+        </div>
+        <div class="form-group">
+            <label for="@Model.Person.CityId">Cities</label>
+            @Html.DropDownListFor(a => a.CityId, Model.Cities.Select(a => new SelectListItem { Text = a.Name, Value = a.Id.ToString() }), "Choose Relation Type", new { name = "CityId", @class = "form-control" })
+        </div>
+
+        <dl>
+            <dt>
+                <label>Image</label>
+            </dt>
+            <dd>
+                <input type="file" name="file">
+            </dd>
+        </dl>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>

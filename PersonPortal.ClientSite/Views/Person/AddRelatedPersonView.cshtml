@@ -1,0 +1,16 @@
+﻿@model AddPersonViewModel
+    <form asp-action="AddRelatedPerson" method="post">
+        <input type="hidden" name="Id" value="@Model.Id" />
+        
+        <div class="form-group">
+            <label for="@Model.RelatedPersons">Relation To Person</label>
+            @Html.DropDownListFor(a=>a.RelatedPersonId, Model.RelatedPersons.Select(i =>new SelectListItem{Text = String.Concat(i.FirstName,' ',i.LastName), Value = i.Id.ToString()}),"Choose Person", new {name="RelatedPersonId",@class="form-control"})
+            
+        </div>
+        <div class="form-group">
+            <label for="@Model.RelationTypes">Relation Types</label>
+            @Html.DropDownListFor(a=>a.RelationTypeId, Model.RelationTypes.Select(i =>new SelectListItem{Text = i.Name, Value = i.Id.ToString()}),"Choose Relation Type", new {name="RelationTypeId",@class="form-control"})
+
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>

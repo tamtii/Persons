@@ -1,0 +1,31 @@
+﻿@model UpdatePersonViewModel
+    <form asp-action="Update" enctype="multipart/form-data" method="post">
+        <input type="hidden" name="Id" value="@Model.Person.Id" />
+        <input type="hidden" name="GenderId" value="1" />
+        <div class="form-group">
+            <label for="@Model.Person.FirstName">FirstName</label>
+            <input type="text" class="form-control" id="" placeholder="" value="@Model.Person.FirstName" name="FirstName">
+
+        </div>
+        <div class="form-group">
+            <label for="@Model.Person.LastName">Last Name</label>
+            <input type="text" class="form-control" id="" placeholder="" value="@Model.Person.LastName" name="LastName">
+        </div>
+        <div class="form-group">
+            <label for="@Model.Person.PersonalNumber">Personal Number</label>
+            <input type="text" class="form-control" id="" placeholder="" value="@Model.Person.PersonalNumber" name="PersonalNumber">
+        </div>
+        <div class="form-group">
+            <label for="@Model.Person.BirthDate">Birth Date</label>
+            <input type="text" class="form-control" id="" placeholder="" value="@Model.Person.BirthDate" name="BirthDate">
+        </div>
+        <div class="form-group">
+            <label for="@Model.Person.CityId">Cities</label>
+            @Html.DropDownListFor(a => a.Person.CityId, Model.Cities.Select(a => new SelectListItem { Text = a.Name, Value = a.Id.ToString() }), "Choose Relation Type", new { name = "CityId", @class = "form-control" })
+        </div>
+       
+        <div class="form-group">
+            <a asp-action="RelatedPersons" asp-route-id="@Model.Person.Id">RelatedPersons</a>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>

@@ -1,0 +1,25 @@
+﻿@model RelatedPersonsViewModel
+    <a asp-action="AddRelatedPersonView" asp-route-id="@Model.ID">Create Related Person</a>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col"></th>
+        
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var k in Model.RelatedPersons)
+    {
+        <tr>
+            <th scope="row">@k.Id</th>
+            <td>@k.FirstName</td>
+            <td>@k.LastName</td>
+            <td><a asp-action="DeleteRelatedPerson" asp-route-id="@k.Id" asp-route-ParentId="@Model.ID">Delete</a></td>
+        </tr>
+    }
+    </tbody>
+</table>
+

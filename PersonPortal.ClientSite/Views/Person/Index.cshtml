@@ -1,0 +1,28 @@
+﻿@model ICollection<PersonPortal.Contracts.Models.PersonModel>
+<a asp-action="Create">Create Person</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var k in Model)
+    {
+        <tr>
+            <th scope="row">@k.Id</th>
+            <td>@k.FirstName</td>
+            <td>@k.LastName</td>
+            <td><a asp-action="Edit" asp-route-id="@k.Id">Edit</a></td>
+            <td><a asp-action="Details" asp-route-id="@k.Id">Details</a></td>
+            <td><a asp-action="Delete" asp-route-id="@k.Id">Delete</a></td>
+        </tr>
+    }
+    </tbody>
+</table>
+

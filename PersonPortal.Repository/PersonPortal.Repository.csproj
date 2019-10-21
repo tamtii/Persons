@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\PersonPortal.Contracts\PersonPortal.Contracts.csproj" />
+    <ProjectReference Include="..\PersonPortal.Data\PersonPortal.Data.csproj" />
+  </ItemGroup>
+
+</Project>
